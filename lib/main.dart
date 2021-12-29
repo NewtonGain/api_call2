@@ -39,14 +39,17 @@ class _MyappState extends State<MyApp> {
     return MaterialApp(home: Scaffold(
       appBar: AppBar
       (title: const Text("API call"),
+      centerTitle: true,
+      backgroundColor: Colors.teal,
     
     ),
+    backgroundColor: Colors.teal,
    body: ListView.builder(
      itemCount: listResponse?.length,itemBuilder: (context,index){
      return  Padding(
        padding: const EdgeInsets.all(8.0),
        child: Column(
-         children: [Image.network(listResponse?[index]["avatar"],height: 200,width: 100,),
+         children: [Image.network(listResponse?[index]["avatar"],),
          Text(listResponse![index]["id"].toString()),
          Text(listResponse?[index]["first_name"]),
          Text(listResponse?[index]["last_name"]),
