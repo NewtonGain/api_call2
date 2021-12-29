@@ -11,7 +11,7 @@ class MyApp extends StatefulWidget {
   @override
   _MyappState createState() => _MyappState();
 }
-var stringData;
+
 Map? mapResponse;
 Map? mapJsonData;
 List? listResponse;
@@ -31,7 +31,6 @@ class _MyappState extends State<MyApp> {
   }
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     fetchData();
   }
@@ -42,11 +41,12 @@ class _MyappState extends State<MyApp> {
       (title: const Text("API call"),
     
     ),
-   body: ListView.builder(itemCount: listResponse?.length,itemBuilder: (context,index){
-     return Container(child: Padding(
+   body: ListView.builder(
+     itemCount: listResponse?.length,itemBuilder: (context,index){
+     return  Padding(
        padding: const EdgeInsets.all(8.0),
        child: Column(
-         children: [Image.network(listResponse?[index]["avatar"]),
+         children: [Image.network(listResponse?[index]["avatar"],height: 200,width: 100,),
          Text(listResponse![index]["id"].toString()),
          Text(listResponse?[index]["first_name"]),
          Text(listResponse?[index]["last_name"]),
@@ -54,8 +54,6 @@ class _MyappState extends State<MyApp> {
          
          ],
        ),
-     ),
-     
      );
    }),
     ),
