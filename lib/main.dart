@@ -24,7 +24,7 @@ class _MyappState extends State<MyApp> {
       mapResponse=jsonDecode(response.body);
       setState(() {
         mapJsonData=mapResponse;
-        listResponse= mapJsonData?["data"] as List;
+        listResponse= mapJsonData?["data"] ;
         
       });
     }
@@ -37,9 +37,27 @@ class _MyappState extends State<MyApp> {
   }
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Scaffold(appBar: AppBar(title: const Text("API call"),
+    return MaterialApp(home: Scaffold(
+      appBar: AppBar
+      (title: const Text("API call"),
+    
     ),
-    body: Center(child: Container(child: Text('${listResponse?[5]["first_name"].toString()}'),)),
+   body: ListView.builder(itemCount: listResponse?.length,itemBuilder: (context,index){
+     return Container(child: Padding(
+       padding: const EdgeInsets.all(8.0),
+       child: Column(
+         children: [Image.network(listResponse?[index]["avatar"]),
+         Text(listResponse![index]["id"].toString()),
+         Text(listResponse?[index]["first_name"]),
+         Text(listResponse?[index]["last_name"]),
+         Text(listResponse?[index]["email"]),
+         
+         ],
+       ),
+     ),
+     
+     );
+   }),
     ),
     );
   }
