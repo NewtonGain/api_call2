@@ -44,6 +44,32 @@ class _MyappState extends State<MyApp> {
     
     ),
     backgroundColor: Colors.teal,
+    drawer: Drawer(backgroundColor: Colors.green[100],
+    elevation: 5.0,
+    child: ListView(
+      children: [
+        const DrawerHeader(decoration: BoxDecoration(gradient: LinearGradient(
+          begin: Alignment.bottomLeft,end: Alignment.topRight,
+          colors: [Colors.greenAccent,Colors.lightGreen],
+          ),
+          ),
+          child: Text('Drawer Header'),
+          ),
+          ListTile(leading: const Icon(Icons.person,size: 40,color: Colors.lightGreen),
+          title: const Text('person'),
+          onTap: (){},
+          ),
+          ListTile(leading: const Icon(Icons.person,size: 40,color: Colors.lightGreen),
+          title: const Text('person'),
+          onTap: (){},
+          ),
+          ListTile(leading: const Icon(Icons.person,size: 40,color: Colors.lightGreen),
+          title: const Text('person'),
+          onTap: (){},
+          ),
+      ],
+    ),
+    ),
    body: ListView.builder(
      itemCount: listResponse?.length,itemBuilder: (context,index){
      return  Padding(
